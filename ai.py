@@ -5,7 +5,7 @@ import openai
 import os
 import datetime
 
-openai.api_key = "get the api key from me before running"
+openai.api_key = "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"
 # Initialize the speech recognizer
 r = sr.Recognizer()
 
@@ -150,13 +150,19 @@ while True:
                                 break
                     elif 'time' in text.lower():
                         get_time()
-                    elif "do i have diabaties" in text.lower():
+                    elif "do i have diabetes" in text.lower():
                         speak("i can help you check the possibility")
                         speak("Please tell me your age")
+                        engine.runAndWait()
+                        print('enter')
                         age = int(recognize_speech())
                         speak("Please tell me your curent Body mass index")
+                        engine.runAndWait()
+                        print('enter')
                         bmi = float(recognize_speech())
                         speak("Please tell me your current blood sugar level")
+                        engine.runAndWait()
+                        print('enter')
                         fasting_blood_sugar = int(recognize_speech())
                         result = check_diabetes(age, bmi, fasting_blood_sugar)
                         speak(result)
